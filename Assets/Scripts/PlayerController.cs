@@ -1,12 +1,37 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+//using TouchingDirections;
 //using AnimationStrings;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
+    public float airWalkSpeed = 3f;
+    public float jumpImpulse = 10f;
     Vector2 moveInput;
+
+    TouchingDirections touchingDirections;
+
+    public float CurrentMoveSpeed {  get
+        {
+            if (IsMoving && !touchingDirections.IsOnWall)
+            {
+                if (touchingDirections.IsGrounded)
+                {
+                    return walkSpeed;
+                }
+                else
+                {
+                    return airWalkSpeed;
+                }
+                
+            }
+            else
+            {
+                return 0;
+            }
+        } }
 
     [SerializeField ]
     private bool _isMoving = false;
@@ -19,7 +44,7 @@ public class PlayerController : MonoBehaviour
         private set 
         { 
             _isMoving = value;
-            animator.SetBool(AnimationStrings.isMoving, value); 
+            animator.SetBool(AnimationStrings.isMoving, value);
         }
     }
 
@@ -42,27 +67,18 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Animator animator;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        touchingDirections = GetComponent<TouchingDirections>();
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * walkSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocity.y);
+        animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -82,7 +98,18 @@ public class PlayerController : MonoBehaviour
         } 
         else if (moveInput.x < 0 && IsFacingRight)
         {
+            //Face the left
             IsFacingRight = false;    
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        //TODO Check if alive as well
+        if (context.started && touchingDirections.IsGrounded)
+        {
+            animator.SetTrigger(AnimationStrings.jump);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
         }
     }
 }
