@@ -97,7 +97,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -111,7 +111,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,10 +132,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -647,28 +647,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Attack3_0: -3236675104909177313
-      Attack3_1: -6048392498854522608
-      Attack3_10: 1426644166534133090
-      Attack3_11: 8226914660933313673
-      Attack3_12: -4962669575770028407
-      Attack3_13: 3476395164418213489
-      Attack3_14: -9210389793721797529
-      Attack3_15: -6577478304988357355
-      Attack3_16: -8272923909459914023
-      Attack3_17: 7198706843313718617
-      Attack3_18: 1128487266077950644
-      Attack3_19: 1103878460105870945
-      Attack3_2: 4769638531270534136
-      Attack3_20: 3612753552370780630
-      Attack3_3: -4825729793490337222
-      Attack3_4: 710405504474814621
-      Attack3_5: -1658806294426973400
-      Attack3_6: -985871239997422432
-      Attack3_7: 1242959238900065772
-      Attack3_8: 8067879071682038392
-      Attack3_9: 8207475063323733418
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
