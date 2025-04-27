@@ -838,6 +838,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651246561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6207763353640371707, guid: 6e264944131380146a0721a61f472d21, type: 3}
+  m_PrefabInstance: {fileID: 5282959395506102166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa51b57d2bf484f40a7e0dffaaad2264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &712777303
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,6 +3778,30 @@ PrefabInstance:
     - target: {fileID: 584380243900878630, guid: 6e264944131380146a0721a61f472d21, type: 3}
       propertyPath: m_Name
       value: KinghtEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 863952669623202173, guid: 6e264944131380146a0721a61f472d21, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863952669623202173, guid: 6e264944131380146a0721a61f472d21, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 651246561}
+    - target: {fileID: 863952669623202173, guid: 6e264944131380146a0721a61f472d21, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 863952669623202173, guid: 6e264944131380146a0721a61f472d21, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 863952669623202173, guid: 6e264944131380146a0721a61f472d21, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Knight, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 863952669623202173, guid: 6e264944131380146a0721a61f472d21, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2041360620972927512, guid: 6e264944131380146a0721a61f472d21, type: 3}
       propertyPath: m_LocalPosition.x
