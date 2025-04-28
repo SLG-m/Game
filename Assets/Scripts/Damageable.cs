@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour
 {
-    public UnityEvent<int, Vector2> damageableHit; 
+    public UnityEvent<int, Vector2> damageableHit;
 
     Animator animator;
 
@@ -17,7 +17,7 @@ public class Damageable : MonoBehaviour
         {
             return _maxHealth;
         }
-        set 
+        set
         {
             _maxHealth = value;
         }
@@ -33,7 +33,7 @@ public class Damageable : MonoBehaviour
             return _health;
         }
         set
-        { 
+        {
             _health = value;
 
             if (_health <= 0)
@@ -74,7 +74,7 @@ public class Damageable : MonoBehaviour
         set
         {
             _isAlive = value;
-            animator.SetBool(AnimationStrings.isAlive, value); 
+            animator.SetBool(AnimationStrings.isAlive, value);
             Debug.Log("IsAlive set" + value);
         }
     }
@@ -93,7 +93,7 @@ public class Damageable : MonoBehaviour
 
     private void Awake()
     {
-       // rb = GetComponent<Rigidbody2D>();
+        // rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         //touchingDirections = GetComponent<TouchingDirections>();
     }
@@ -129,6 +129,24 @@ public class Damageable : MonoBehaviour
             return true;
         }
         // цель не поражена
+        return false;
+    }
+
+    public bool Heal(int healthRestore)
+    {
+        if (IsAlive && Health < MaxHealth)
+        {
+            int maxHeal = Mathf.Max(MaxHealth - Health, 0);
+
+            int actualHeal = Mathf.Min(maxHeal, healthRestore);
+
+            Health += actualHeal;
+
+            CharacterEvents.characterHealed(gameObject, actualHeal);
+
+            return true;
+        }
+
         return false;
     }
 }
