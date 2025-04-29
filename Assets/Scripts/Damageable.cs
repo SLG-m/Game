@@ -5,6 +5,7 @@ public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
+    public UnityEvent<int, int> HealthChanged;
 
     Animator animator;
 
@@ -36,11 +37,8 @@ public class Damageable : MonoBehaviour
         set
         {
             _health = value;
-
-            if (_health <= 0)
-            {
-                IsAlive = false;
-            }
+            HealthChanged?.Invoke(_health, _maxHealth);
+            if (_health <= 0) IsAlive = false;
         }
     }
 
