@@ -12,9 +12,16 @@ public class UIManager : MonoBehaviour
     public Canvas gameCanvas;
 
     [Header("Pause Menu")]
-    public GameObject pauseMenuPanel; // Перетащите сюда панель паузы из Canvas
-    public Button continueButton;     // Кнопка "Продолжить"
-    public Button menuButton;        // Кнопка "В меню"
+    public GameObject pauseMenuPanel;
+    public Button continueButton;
+    public Button menuButton;
+
+    [Header("Win/Lose Menu")]
+    public GameObject winPanel;
+    public GameObject losePanel;
+    public Button winMenuButton;
+    public Button loseMenuButton;
+    public TMP_Text winLoseText;
 
     private bool isPaused = false;
 
@@ -28,6 +35,13 @@ public class UIManager : MonoBehaviour
 
         if (menuButton != null)
             menuButton.onClick.AddListener(GoToMainMenu);
+
+        // Настройка кнопок победы/поражения
+        if (winMenuButton != null)
+            winMenuButton.onClick.AddListener(GoToMainMenu);
+
+        if (loseMenuButton != null)
+            loseMenuButton.onClick.AddListener(GoToMainMenu);
     }
 
     private void OnEnable()
@@ -108,5 +122,28 @@ public class UIManager : MonoBehaviour
         TMP_Text tmpText = Instantiate(healthTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform)
             .GetComponent<TMP_Text>();
         tmpText.text = healthRestored.ToString();
+    }
+
+    public void ShowWinPanel()
+    {
+        Time.timeScale = 0f;
+        winPanel.SetActive(true);
+        winLoseText.text = "Победа!";
+        DisablePlayerInput();
+    }
+
+    public void ShowLosePanel()
+    {
+        Time.timeScale = 0f;
+        losePanel.SetActive(true);
+        winLoseText.text = "Поражение";
+        DisablePlayerInput();
+    }
+
+    private void DisablePlayerInput()
+    {
+        var playerInput = FindObjectOfType<PlayerInput>();
+        if (playerInput != null)
+            playerInput.enabled = false;
     }
 }

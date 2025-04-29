@@ -61,11 +61,25 @@ public class Damageable : MonoBehaviour
         {
             _isAlive = value;
             animator.SetBool(AnimationStrings.isAlive, value);
-            Debug.Log("IsAlive set" + value);
 
             if (value == false)
             {
+                Debug.Log("Player died!"); // Добавьте это
                 damageableDeath.Invoke();
+
+                if (gameObject.CompareTag("Player"))
+                {
+                    Debug.Log("Trying to show lose panel...");
+                    var uiManager = FindObjectOfType<UIManager>();
+                    if (uiManager != null)
+                    {
+                        uiManager.ShowLosePanel();
+                    }
+                    else
+                    {
+                        Debug.LogError("UIManager not found when player died!");
+                    }
+                }
             }
         }
     }
