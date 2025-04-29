@@ -48,19 +48,6 @@ public class Damageable : MonoBehaviour
     [SerializeField]
     private bool isInvincible = false;
 
-    //public bool IsHit
-    //{
-    //    get
-    //    {
-    //        return animator.GetBool(AnimationStrings.isHit);
-    //    }
-    //    private set
-    //    {
-    //        animator.SetBool(AnimationStrings.isHit, value);
-    //    }
-    //}
-
-
     private float timerSinceHit = 0;
     public float invincibilityTime = 0.25f;
 

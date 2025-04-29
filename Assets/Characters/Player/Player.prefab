@@ -401,6 +401,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  damageableDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  HealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -594,7 +600,7 @@ PolygonCollider2D:
       - {x: -1.4917493, y: 0.71215594}
       - {x: -0.7885251, y: -0.3869973}
       - {x: -0.94859624, y: -1.1048093}
-      - {x: -0.37807608, y: -1.506301}
+      - {x: -0.07039261, y: -1.5518838}
       - {x: 0.32103324, y: -1.0228562}
       - {x: 0.47350883, y: -0.0138994455}
       - {x: 0.37510037, y: 0.6180643}
