@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkAcceleration: 50
-  maxSpeed: 5
+  maxSpeed: 2
   walkStopRate: 0.6
   attackZone: {fileID: 2064524466557417695}
   cliffDetectionZone: {fileID: 8544291163444389938}
@@ -245,6 +245,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageableHit:
+    m_PersistentCalls:
+      m_Calls: []
+  damageableDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  HealthChanged:
     m_PersistentCalls:
       m_Calls: []
   _maxHealth: 100
@@ -347,7 +353,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.14409018}
+  m_Offset: {x: 0, y: 0.16833413}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -357,7 +363,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.392973}
+  m_Size: {x: 1, y: 0.76812434}
   m_EdgeRadius: 0
 --- !u!1 &4740165418623662699
 GameObject:
